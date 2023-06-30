@@ -2,9 +2,9 @@
 # Calculator
 Este repositorio contiene una aplicación Spring Boot 3.0.6 en la cual se implementa una calculadora, cuyo ejercicio puede encontrarse en la carpeta [docs](docs/exercise.md)
 
-Para la implementación se escogió arquitectura hexagonal debido a la separación de la lógica de negocio del resto de lógica, capas de persistencia, clientes REST,...
+Para la implementación se escogió arquitectura hexagonal debido a la separación de la lógica de negocio del resto de lógica, capas de persistencia, clientes REST,...Haciendo de esta forma que las distintas capas evolucionen de forma independiente.
 
-A mayores se intenta seguir los patrones CQRS y DDD. 
+A mayores se intenta seguir los patrones CQRS y DDD.
 
 El proyecto está dividido en los siguientes módulos:
 - **api:** implementa los puertos de entrada, en este caso servicios REST
@@ -29,7 +29,7 @@ Para compilar realizaremos un clean install normal con Maven:
 ```bash
   mvn clean install
 ```
-Después de eso podemos lanzarlo con el siguiente comando: 
+Después de eso podemos lanzarlo con el siguiente comando:
 ```bash
   mvn spring-boot:run
 ```
@@ -47,19 +47,19 @@ GET http://localhost:8080/calculator/v1/substraction?operator1=12&operator2=1
 
 Se podría incluír Swagger para poder tener una forma más fácil de realizar requests.
 
-# Additional comments
+# Comentarios adicionales
 
 Teniendo en cuenta las exigencias de escalabilidad, sobre todo indicando que en el futuro se realizarán operaciones más
-complejas, se divide en varios endpoints, uno por cada operación. De esta forma nos aseguramos la independencia 
+complejas, se divide en varios endpoints, uno por cada operación. De esta forma nos aseguramos la independencia
 entre ellos y la flexibilidad a la hora de modificar cualquier endpoint sin afectar al resto de operaciones (por ejemplo
-en el caso de que una de las próximas operaciones necesite más de un parámetro o que tengan unas condiciones exclusivas). 
+en el caso de que una de las próximas operaciones necesite más de un parámetro o que tengan unas condiciones exclusivas).
 
-Si fuesen endpoints cerrados a modificaciones futuras se podría haber implementado en un solo endpoint, incluyendo 
-un nuevo parámetro que sea un elemento de un enumerado de las operaciones disponibles y en funcion de eso realizar uno 
+Si fuesen endpoints cerrados a modificaciones futuras se podría haber implementado en un solo endpoint, incluyendo
+un nuevo parámetro que sea un elemento de un enumerado de las operaciones disponibles y en funcion de eso realizar uno
 u otro cálculo.
 
-Por otra parte, resaltar que gracias al versionado de API evitaremos realizar cambios y desplegar versiones que rompan 
+Por otra parte, resaltar que gracias al versionado de API evitaremos realizar cambios y desplegar versiones que rompan
 el funcionamiento de los actuales consumidores del servicio.
 
-A mayores en el caso de que el rendimiento sea crítico, se podría implementar una caché para evitar realizar la misma 
+A mayores en el caso de que el rendimiento sea crítico, se podría implementar una caché para evitar realizar la misma
 operación repetitivamente.
