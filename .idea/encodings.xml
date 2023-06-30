@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/code/api/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/code/api/target/generated-sources/openapi/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/code/application/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/code/boot/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/code/calculator-clients/calculator-api-rest-product/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/code/calculator-clients/calculator-api-rest-product/target/generated-sources/openapi-client/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/code/calculator-clients/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/code/calculator-clients/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/code/domain/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/code/infrastructure/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/code/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/code/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/resources" charset="UTF-8" />
+  </component>
+</project>

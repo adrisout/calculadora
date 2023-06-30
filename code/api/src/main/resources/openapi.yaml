@@ -1,0 +1,169 @@
+openapi: 3.0.3
+info:
+  title: Calculator API specification
+  description: Calculator API specification
+  version: 1.0
+servers:
+  - url: http://localhost:8080/
+tags:
+  - name: calculator
+    description: Operations in a calculator
+paths:
+  /v1/sum:
+    get:
+      tags:
+        - calculator
+      summary: Get price info filtering by sum, brand and application date
+      description: Get price info filtering by sum, brand and application date
+      operationId: getCalculatorSum
+      parameters:
+        - $ref: '#/components/parameters/operator1'
+        - $ref: '#/components/parameters/operator2'
+      responses:
+        200:
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Result'
+        400:
+          description: 'Bad Request'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              example:
+                errors:
+                  -
+                    code: '400'
+                    description: 'Bad Request'
+                    level: 'ERROR'
+                    message: 'The field xxx must not be null'
+        405:
+          description: 'Method not allowed'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              example:
+                errors:
+                  - code: '405'
+                    description: 'Method not allowed'
+                    level: 'ERROR'
+                    message: 'Request method "POST" is not supported'
+        500:
+          description: 'Internal Server Error'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              example:
+                errors:
+                  -
+                    code: '500'
+                    description: 'Internal Server Error'
+                    level: 'ERROR'
+                    message: 'Internal Server Error'
+  /v1/substraction:
+    get:
+      tags:
+        - calculator
+      summary: Get price info filtering by sum, brand and application date
+      description: Get price info filtering by sum, brand and application date
+      operationId: getCalculatorSubstraction
+      parameters:
+        - $ref: '#/components/parameters/operator1'
+        - $ref: '#/components/parameters/operator2'
+      responses:
+        200:
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Result'
+        400:
+          description: 'Bad Request'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              example:
+                errors:
+                  - code: '400'
+                    description: 'Bad Request'
+                    level: 'ERROR'
+                    message: 'The field xxx must not be null'
+        405:
+          description: 'Method not allowed'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              example:
+                errors:
+                  - code: '405'
+                    description: 'Method not allowed'
+                    level: 'ERROR'
+                    message: 'Request method "POST" is not supported'
+        500:
+          description: 'Internal Server Error'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              example:
+                errors:
+                  - code: '500'
+                    description: 'Internal Server Error'
+                    level: 'ERROR'
+                    message: 'Internal Server Error'
+components:
+  schemas:
+    Result:
+      type: object
+      additionalProperties: false
+      properties:
+        result:
+          type: integer
+          format: int64
+          example: 6
+          minimum: -9223372036854775808
+          maximum: 9223372036854775807
+    ErrorResponse:
+      type: object
+      properties:
+        code:
+          type: string
+          example: '400'
+        description:
+          type: string
+          example: 'Bad Request'
+        level:
+          type: string
+          example: 'ERROR'
+        message:
+          type: string
+          example: 'Missing parameter'
+  parameters:
+    operator1:
+      description: First operator accepted
+      in: query
+      name: operator1
+      required: true
+      schema:
+        type: integer
+        format: int64
+        minimum: -9223372036854775808
+        maximum: 9223372036854775807
+      example: 3
+    operator2:
+      description: Second operator accepted
+      in: query
+      name: operator2
+      required: true
+      schema:
+        type: integer
+        format: int64
+        minimum: -9223372036854775808
+        maximum: 9223372036854775807
+      example: 3

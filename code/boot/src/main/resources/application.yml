@@ -1,0 +1,7 @@
+server:
+  servlet:
+    context-path: /calculator
+  port: 8080
+logging:
+  level:
+    root: INFO
